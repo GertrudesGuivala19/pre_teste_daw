@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::resource('/restaurante', RestauranteController::class);
 
 Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
+
+// Em routes/web.php
+// Em routes/web.php ou routes/api.php
+Route::post('/restaurants/{restaurant}/toggle-favorite', 'RestaurantController@toggleFavorite');
+

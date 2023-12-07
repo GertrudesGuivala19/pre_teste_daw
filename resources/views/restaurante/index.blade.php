@@ -34,6 +34,7 @@
                                             <td>{{ $item->tipo_cozinha }}</td>
                                             <td>{{ $item->localizacao }}</td>
                                             <td>{{ $item->faixa_preco }}</td>
+                                            <td>{{ $item->favorito }}</td>
 
                                             <td>
                                                 <a href="{{ url('/restaurante/' . $item->id) }}" title="View Restaurante"><button
@@ -56,6 +57,10 @@
                                                 <a href="{{ url('/restaurante/' . $item->id) }}" title="Detalhes Restaurante"><button
                                                     class="btn btn-success btn-sm"><i class="fa fa-eye"
                                                         aria-hidden="true"></i> Detalhes</button></a>
+
+                                                <a href="{{ url('/restaurante/' . $item->id) }}" title="Favorito"><button
+                                                    class="btn btn-success btn-sm"><i class="fa fa-eye"
+                                                        aria-hidden="true"></i> Favorito</button></a>
                                             </td>
                                         </tr>
                                     @endforeach

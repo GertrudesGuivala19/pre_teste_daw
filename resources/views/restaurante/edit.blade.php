@@ -21,6 +21,8 @@
         <label for="">Faixa de Preco: </label>
         <input type="text" class="form-control" placeholder="Digite a Faixa de Preco.." id ="faixa_preco" name="faixa_preco" value="{{$restaurante->faixa_preco}}">
         <br />
+
+      
         <input type="submit" value="Update" class="btn btn-success">
         <br/>
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('tipo_cozinha');
             $table->string('localizacao');
             $table->string('faixa_preco');
+            $table->boolean('is_favorite')->default(false);
             $table->timestamps();
         });
     }

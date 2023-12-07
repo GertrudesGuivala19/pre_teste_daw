@@ -23,7 +23,10 @@ class RestauranteController extends Controller
     {
         return view('restaurante.create');
 
+
+
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -39,6 +42,7 @@ class RestauranteController extends Controller
     // Crie um novo objeto do modelo e defina os valores dos atributos
     public function store(Request $request){
 
+        
         /*$restaurante = new Restaurante;
         $restaurante->nome = $request->nome;
         $restaurante->tipo_cozinha = $request->tipo_cozinha;
@@ -55,6 +59,7 @@ class RestauranteController extends Controller
 
         // Crie um novo registro no banco de dados
 
+
     }
 
 
@@ -70,7 +75,7 @@ class RestauranteController extends Controller
 
         return view('restaurants.show', ['restaurant' => $restaurant]);
     }
-   
+
 
 
     /**
@@ -103,6 +108,22 @@ class RestauranteController extends Controller
         Restaurante::destroy($id);
         return redirect('restaurante')->with('flash_message', 'Restaurante Deletado!');
     }
+
+    public function toggleFavorite(Restaurant $restaurant)
+    {
+        $restaurant->update(['is_favorite' => !$restaurant->is_favorite]);
+
+        return redirect()->back()->with('success', 'Restaurante marcado como favorito com sucesso!');
+    }
+
+    public function favoriteRestaurants()
+    {
+        $favoriteRestaurants = Restaurante::where('is_favorite', true)->get();
+
+        return view('favorite-restaurants', compact('favoriteRestaurants'));
+    }
+
+
 
 
 }
